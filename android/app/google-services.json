@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "32775273661",
+    "project_id": "vaccdatabase",
+    "storage_bucket": "vaccdatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32775273661:android:1bdf1a95cfd9dfd3034bd4",
+        "android_client_info": {
+          "package_name": "com.example.vacc_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32775273661-md3uh3fnbgkoriftb5bers1q505cbpo3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyS7rcxqugOxaBV1SOUWW15xf0CaOrHXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32775273661-md3uh3fnbgkoriftb5bers1q505cbpo3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
