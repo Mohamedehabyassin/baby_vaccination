@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "32775273661",
-    "project_id": "vaccdatabase",
-    "storage_bucket": "vaccdatabase.appspot.com"
+    "project_number": "640351923751",
+    "project_id": "vacc-app-18956",
+    "storage_bucket": "vacc-app-18956.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:32775273661:android:1bdf1a95cfd9dfd3034bd4",
+        "mobilesdk_app_id": "1:640351923751:android:b8699b06404cf0fc21e802",
         "android_client_info": {
           "package_name": "com.example.vacc_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "32775273661-md3uh3fnbgkoriftb5bers1q505cbpo3.apps.googleusercontent.com",
+          "client_id": "640351923751-sp45hsu2md37unl0uvkjjq057pmv350j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vacc_app",
+            "certificate_hash": "e8d4d6ff207ab7e8259354d3ca6ce4d523d840a3"
+          }
+        },
+        {
+          "client_id": "640351923751-rg67ubopto2lpg8p643lqftjtlu1ur3n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCyS7rcxqugOxaBV1SOUWW15xf0CaOrHXo"
+          "current_key": "AIzaSyDFKH7KE5hZJcHh-LsTjPDnKsQ309JKLAw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "32775273661-md3uh3fnbgkoriftb5bers1q505cbpo3.apps.googleusercontent.com",
+              "client_id": "640351923751-rg67ubopto2lpg8p643lqftjtlu1ur3n.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

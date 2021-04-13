@@ -6,21 +6,15 @@ import 'package:flare_flutter/flare_actor.dart';
 class SignIn extends StatefulWidget {
   final Function toggleView;
   SignIn({ this.toggleView });
-
-
-
   @override
   _SignInState createState() => _SignInState();
 }
-
 class _SignInState extends State<SignIn> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
   }
-
   final AuthService _authService = AuthService();
   String animationType = "idle";
   String _email = '';
@@ -30,8 +24,6 @@ class _SignInState extends State<SignIn> {
   final userFocusNode = FocusNode();
   final passwordFocusNode = FocusNode();
   bool loading = false;
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

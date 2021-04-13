@@ -10,10 +10,9 @@ import 'package:provider/provider.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AuthService _auth = AuthService();
-    return StreamProvider<QuerySnapshot>.value(
-      value: DatabaseService().userNewData,
-      child: Scaffold(
+   final AuthService _auth = AuthService();
+    final database = DatabaseService();
+    return  Scaffold(
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -35,7 +34,12 @@ class Home extends StatelessWidget {
               ListTile(
                 title: Text('Edit Info'),
                 leading: Icon(Icons.info),
-                onTap: () {},
+                onTap: () {
+                  final data = database.getUserData();
+                  data.then((value) {
+                    print(value.data());
+                  } );
+                },
               ),
             ],
           ),
@@ -53,7 +57,6 @@ class Home extends StatelessWidget {
           ],
         ),
         body: BabiesList(),
-      ),
     );
   }
 }

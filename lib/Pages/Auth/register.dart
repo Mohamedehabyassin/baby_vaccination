@@ -115,7 +115,9 @@ class _RegisterState extends State<Register> {
                 height: 20,
               ),
               ElevatedButton(
-                  onPressed: () => {},
+                  onPressed: () async {
+                     await _auth.signInWithGoogle();
+                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
                       (Set<MaterialState> states) {
@@ -138,7 +140,10 @@ class _RegisterState extends State<Register> {
                     ],
                   )),
               ElevatedButton(
-                  onPressed: () => {},
+                  onPressed: () async {
+                  _auth.signInWithFacebook();
+
+              },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
                       (Set<MaterialState> states) {

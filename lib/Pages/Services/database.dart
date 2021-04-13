@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vacc_app/Pages/Services/BabyModel.dart';
+import 'package:vacc_app/Pages/Services/userModel.dart';
 
 class DatabaseService extends ChangeNotifier{
+  UserModel _userModel = UserModel();
   final String uid;
   DatabaseService({this.uid});
 
@@ -19,6 +21,13 @@ class DatabaseService extends ChangeNotifier{
     })
         .then((value) => print("User Added"))
         .catchError((error) => print("Failed to add user: $error"));
+  }
+
+
+  Future getUserData() async {
+    print(_userModel.uid);
+    print("Test");
+    return userCollection.doc(uid).get();
   }
 
   Future updateUserData(String userName,String gender) async {
