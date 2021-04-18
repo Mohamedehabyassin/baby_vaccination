@@ -5,16 +5,20 @@ import 'package:flare_flutter/flare_actor.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
-  SignIn({ this.toggleView });
+
+  SignIn({this.toggleView});
+
   @override
   _SignInState createState() => _SignInState();
 }
+
 class _SignInState extends State<SignIn> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
   }
+
   final AuthService _authService = AuthService();
   String animationType = "idle";
   String _email = '';
@@ -24,6 +28,7 @@ class _SignInState extends State<SignIn> {
   final userFocusNode = FocusNode();
   final passwordFocusNode = FocusNode();
   bool loading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +36,7 @@ class _SignInState extends State<SignIn> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.teal[200],
         elevation: 0,
-        title:Center(
+        title: Center(
           child: Text("Log In"),
         ),
       ),
@@ -57,8 +62,7 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                     backgroundColor: Colors.white,
-                  )
-              ),
+                  )),
             ),
             SizedBox(
               height: 30,
@@ -68,11 +72,13 @@ class _SignInState extends State<SignIn> {
               child: Column(
                 children: <Widget>[
                   TextFormField(
-                    onChanged: (val){
+                    onChanged: (val) {
                       setState(() => _email = val);
                     },
                     decoration: InputDecoration(
-                      icon: Icon(Icons.email,),
+                      icon: Icon(
+                        Icons.email,
+                      ),
                       border: InputBorder.none,
                       hintText: "E-mail",
                       contentPadding: EdgeInsets.all(10),
@@ -82,15 +88,16 @@ class _SignInState extends State<SignIn> {
                   ),
                   Divider(),
                   TextFormField(
-                    onChanged: (val){
+                    onChanged: (val) {
                       setState(() => _password = val);
                     },
                     decoration: InputDecoration(
-                        icon: Icon(Icons.lock,),
+                        icon: Icon(
+                          Icons.lock,
+                        ),
                         border: InputBorder.none,
                         hintText: "Password",
-                        contentPadding: EdgeInsets.all(10)
-                    ),
+                        contentPadding: EdgeInsets.all(10)),
                     obscureText: true,
                     controller: passwordController,
                     focusNode: passwordFocusNode,
@@ -102,8 +109,7 @@ class _SignInState extends State<SignIn> {
               margin: EdgeInsets.symmetric(horizontal: 25),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: Colors.teal[200]
-              ),
+                  color: Colors.teal[200]),
             ),
             Container(
               width: 150,
@@ -112,34 +118,33 @@ class _SignInState extends State<SignIn> {
               padding: EdgeInsets.only(top: 20),
               child: RaisedButton(
                 color: Colors.pink[400],
-                  onPressed: () async {
-                  dynamic result = await _authService.signInWithEmailAndPassword(_email, _password);
-                  if(result==null){
+                onPressed: () async {
+                  dynamic result = await _authService
+                      .signInWithEmailAndPassword(_email, _password);
+                  if (result == null) {
                     setState(() {
-                      animationType='fail';
-                    });
-                  }else{
-                    setState(() {
-                      animationType = "success";
+                      animationType = 'fail';
                     });
                   }
-                  },
-                  child: Text("Log In ", style: TextStyle(color: Colors.teal[200]),),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30),
-
-                  ),
+                },
+                child: Text(
+                  "Log In ",
+                  style: TextStyle(color: Colors.teal[200]),
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(30),
+                ),
               ),
             ),
-
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-
         backgroundColor: Colors.teal[200],
-        child: Icon(Icons.add,),
-          onPressed: () => widget.toggleView(),
+        child: Icon(
+          Icons.add,
+        ),
+        onPressed: () => widget.toggleView(),
       ),
     );
   }

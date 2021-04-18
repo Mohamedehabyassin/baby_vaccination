@@ -8,9 +8,7 @@ class BabyTile extends StatelessWidget {
   BabyTile({this.babyModel});
   @override
   Widget build(BuildContext context) {
-    print(babyModel.babyBirthDate);
-    print(babyModel.babyName);
-    return Padding(
+        return Padding(
         padding: EdgeInsets.only(top: 10),
       child: Card(
         margin: EdgeInsets.all(20),

@@ -7,10 +7,10 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  UserModel _userFromFirebaseUser(User _user) {
-    return _user != null ? UserModel(uid: _user.uid) : null;
-  }
+  UserModel _userFromFirebaseUser(User user) {
+   return user != null ? UserModel(id: user.uid) : null;
 
+  }
 
   Stream<UserModel> get user {
     return _auth.authStateChanges().map(_userFromFirebaseUser);
@@ -20,7 +20,6 @@ class AuthService {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-
       User user = userCredential.user;
       return _userFromFirebaseUser(user);
     } catch (e) {
@@ -34,7 +33,7 @@ class AuthService {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
       User user = userCredential.user;
-       await DatabaseService(uid: user.uid).addUser(email, '');
+       await DatabaseService().addUser(email, '');
        return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
