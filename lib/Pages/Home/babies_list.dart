@@ -37,6 +37,13 @@ class _BabiesListState extends State<BabiesList> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold),
                           ),
+                          subtitle: Text(
+                            "${_service.babies[item]['babyBirthday']}",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
                           leading: Icon(
                             Icons.face,
                             color: Colors.black,

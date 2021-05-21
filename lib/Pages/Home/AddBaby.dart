@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vacc_app/Pages/Home.dart';
 import 'package:vacc_app/Pages/Services/database.dart';
 
 class AddBaby extends StatefulWidget {
@@ -22,6 +23,15 @@ class _AddBabyState extends State<AddBaby> {
         title: Center(child: Text("New Baby")),
         backgroundColor: Colors.pink,
         automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.backspace),
+          onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Home()),
+            );
+          },
+        ),
       ),
       body: ListView(
         children: [

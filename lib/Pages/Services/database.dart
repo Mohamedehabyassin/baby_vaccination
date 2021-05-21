@@ -42,6 +42,7 @@ class DatabaseService extends ChangeNotifier {
       await transaction.set(currentRegion, regionData);
       print("instance created");
     });
+    getBabiesList();
     notifyListeners();
   }
 
@@ -74,16 +75,16 @@ class DatabaseService extends ChangeNotifier {
      notifyListeners();
 
   }
-
-  List<BabyModel> _babiesFromSnapShot(QuerySnapshot snapshot) {
-    return snapshot.docs.map((data) {
-      return BabyModel(
-        babyName: data.data()['userName'] ?? '',
-        babyGender: data.data()['gender'] ?? '',
-        babyBirthDate: data.data()['numberOfBabies'] ?? '',
-      );
-    }).toList();
-  }
+  //
+  // List<BabyModel> _babiesFromSnapShot(QuerySnapshot snapshot) {
+  //   return snapshot.docs.map((data) {
+  //     return BabyModel(
+  //       babyName: data.data()['userName'] ?? '',
+  //       babyGender: data.data()['gender'] ?? '',
+  //       babyBirthDate: data.data()['numberOfBabies'] ?? '',
+  //     );
+  //   }).toList();
+  // }
 
 //   // get user Stream
 //   Stream<QuerySnapshot> get userNewData {
