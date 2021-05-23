@@ -80,25 +80,17 @@ class AuthService {
         final accessToken = response.accessToken;
         final userCredential = await _auth.signInWithCredential(
             FacebookAuthProvider.credential(accessToken.token));
-        await DatabaseService().addUser(userCredential.user.email, '');
-
+        await DatabaseService().addUser('', '');
         return userCredential.user;
+
       case FacebookLoginStatus.Cancel:
         throw FirebaseAuthException(message: "Sign in Aborted by User");
+
       case FacebookLoginStatus.Error:
         throw FirebaseAuthException(message: response.error.developerMessage);
       default:
         throw UnimplementedError();
     }
-    // // Trigger the sign-in flow
-    // final AccessToken result = await FacebookAuth.instance.login();
-    //
-    // // Create a credential from the access token
-    // final FacebookAuthCredential facebookAuthCredential =
-    // FacebookAuthProvider.credential(result.token);
-    //
-    // // Once signed in, return the UserCredential
-    // return await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 
   Future<void> signOut() async {
