@@ -4,10 +4,8 @@ import 'package:vacc_app/Pages/Home/AddBaby.dart';
 import 'package:vacc_app/Pages/Home/babies_list.dart';
 import 'package:vacc_app/Pages/Home/editUser.dart';
 import 'package:vacc_app/Pages/Services/authService.dart';
-import 'package:vacc_app/Pages/Services/database.dart';
-import 'package:vacc_app/Pages/Services/userModel.dart';
-import 'package:provider/provider.dart';
-
+import 'package:vacc_app/Pages/Services/messaging.dart';
+import '';
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -57,10 +55,9 @@ class _HomeState extends State<Home> {
           IconButton(
             icon: Icon(Icons.refresh),
             onPressed: ()  {
-              setState(() {
 
-              });
-
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Messaging()));
             },
           )
         ],

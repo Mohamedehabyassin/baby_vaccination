@@ -133,6 +133,7 @@ class _AddBabyState extends State<AddBaby> {
               ),
               onPressed: () async{
                 await _data.addBaby(babyName,dropdownValue,babyBirthday);
+                Navigator.pop(context);
               },
             ),
           ),
