@@ -133,8 +133,12 @@ class _AddBabyState extends State<AddBaby> {
               ),
               onPressed: () async{
                 await _data.addBaby(babyName,dropdownValue,babyBirthday);
-                Navigator.pop(context);
-              },
+                new Future.delayed(const Duration(seconds: 1), () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+
+                });
+                  },
             ),
           ),
         ],
