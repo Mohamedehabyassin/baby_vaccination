@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +9,6 @@ class Messaging extends StatefulWidget {
 }
 
 class _MessagingState extends State<Messaging> {
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
   final FirebaseMessaging _fcm = FirebaseMessaging();
 
   @override
@@ -25,4 +23,14 @@ class _MessagingState extends State<Messaging> {
   Widget build(BuildContext context) {
     return Scaffold();
   }
+
+  void initMessaging(){
+    // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    //
+    // });
+  }
+  }
+
+  void notificationPermission(){
+
 }

@@ -22,11 +22,11 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text("Register")),
-        backgroundColor: myColor,
+        backgroundColor: Colors.indigo[900],
         elevation: 0,
         automaticallyImplyLeading: false,
       ),
-      backgroundColor: myColor,
+      backgroundColor: Colors.indigo[900],
       body: ListView(children: <Widget>[
         Container(
           height: MediaQuery.of(context).size.height,
@@ -56,7 +56,7 @@ class _RegisterState extends State<Register> {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(70),
-                    color: Colors.grey[300]),
+                    color: Colors.blue[700]),
                 child: TextFormField(
                   onChanged: (val) {
                     setState(() => _email = val);
@@ -64,7 +64,7 @@ class _RegisterState extends State<Register> {
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(10),
-                      prefixIcon: Icon(Icons.mail_outline)),
+                      prefixIcon: Icon(Icons.mail_outline,color: Colors.white,)),
                 ),
               ),
               SizedBox(
@@ -73,7 +73,7 @@ class _RegisterState extends State<Register> {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(70),
-                    color: Colors.grey[300]),
+                    color: Colors.blue[700]),
                 child: TextFormField(
                   obscureText: true,
                   onChanged: (val) {
@@ -82,7 +82,7 @@ class _RegisterState extends State<Register> {
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(10),
-                      prefixIcon: Icon(Icons.lock)),
+                      prefixIcon: Icon(Icons.lock,color: Colors.white,)),
                 ),
               ),
               Container(
@@ -91,7 +91,7 @@ class _RegisterState extends State<Register> {
                 margin: EdgeInsets.symmetric(horizontal: 70),
                 padding: EdgeInsets.only(top: 20),
                 child: RaisedButton(
-                  color: myColor,
+                  color: Colors.indigo[900],
                   onPressed: () async {
                     dynamic result = await _auth.registerWithEmailAndPassword(
                         _email, _password);
@@ -178,7 +178,7 @@ class _RegisterState extends State<Register> {
         ),
       ]),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: myColor,
+          backgroundColor: Colors.indigo[900],
           child: Icon(
             Icons.login,
           ),

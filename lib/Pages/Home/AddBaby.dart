@@ -21,25 +21,17 @@ class _AddBabyState extends State<AddBaby> {
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text("New Baby")),
-        backgroundColor: Colors.pink,
+        backgroundColor: Colors.indigo[900],
         automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: Icon(Icons.backspace),
-          onPressed: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Home()),
-            );
-          },
-        ),
       ),
+      backgroundColor: Colors.blue[700],
       body: ListView(
         children: [
           Container(
             margin: EdgeInsets.only(top: 150, left: 60, right: 60, bottom: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(70),
-                color: Colors.grey[300]),
+                color: Colors.blue[200]),
             child: TextFormField(
               decoration: InputDecoration(
                 border: InputBorder.none,
@@ -57,7 +49,7 @@ class _AddBabyState extends State<AddBaby> {
             margin: EdgeInsets.only(top: 10, left: 60, right: 60, bottom: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(70),
-                color: Colors.grey[300]),
+                color: Colors.blue[200]),
             child: TextFormField(
               decoration: InputDecoration(
                 border: InputBorder.none,
@@ -76,7 +68,7 @@ class _AddBabyState extends State<AddBaby> {
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(70),
-                color: Colors.grey[300]),
+                color: Colors.blue[200]),
             child: Row(
               children: [
                 SizedBox(
@@ -99,7 +91,7 @@ class _AddBabyState extends State<AddBaby> {
                   style: TextStyle(color: Colors.black87),
                   underline: Container(
                     height: 2,
-                    color: Colors.deepPurpleAccent,
+                    color: Colors.indigo[900],
                   ),
                   onChanged: (String newValue) {
                     setState(() {
@@ -123,7 +115,7 @@ class _AddBabyState extends State<AddBaby> {
             margin: EdgeInsets.symmetric(horizontal: 70),
             padding: EdgeInsets.only(top: 20),
             child: RaisedButton(
-              color: Colors.pink[400],
+              color: Colors.indigo[900],
               child: Text(
                 "Add Baby ",
                 style: TextStyle(color: Colors.white),

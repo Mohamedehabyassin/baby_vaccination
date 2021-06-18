@@ -5,7 +5,6 @@ import 'package:vacc_app/Pages/Services/authService.dart';
 import 'package:vacc_app/Pages/Services/userModel.dart';
 import 'package:vacc_app/Pages/Splash_Screen.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -24,4 +23,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

@@ -34,13 +34,13 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.teal[200],
+        backgroundColor: Colors.indigo[900],
         elevation: 0,
         title: Center(
           child: Text("Log In"),
         ),
       ),
-      backgroundColor: Colors.blue[300],
+      backgroundColor: Colors.blue[700],
       body: SafeArea(
         child: ListView(
           children: <Widget>[
@@ -75,25 +75,40 @@ class _SignInState extends State<SignIn> {
                     onChanged: (val) {
                       setState(() => _email = val);
                     },
+                    cursorColor: Colors.white,
+                    style: TextStyle(
+                      color: Colors.white
+                    ),
                     decoration: InputDecoration(
                       icon: Icon(
                         Icons.email,
+                        color: Colors.white,
                       ),
                       border: InputBorder.none,
+                      fillColor: Colors.white,
                       hintText: "E-mail",
+
                       contentPadding: EdgeInsets.all(10),
                     ),
                     controller: userController,
                     focusNode: userFocusNode,
                   ),
-                  Divider(),
+                  Divider(thickness: 1,
+                  color: Colors.white,
+                  endIndent: 30,
+                  indent: 30,),
                   TextFormField(
                     onChanged: (val) {
                       setState(() => _password = val);
                     },
+                    cursorColor: Colors.white,
+                    style: TextStyle(
+                        color: Colors.white
+                    ),
                     decoration: InputDecoration(
                         icon: Icon(
                           Icons.lock,
+                          color: Colors.white,
                         ),
                         border: InputBorder.none,
                         hintText: "Password",
@@ -109,7 +124,7 @@ class _SignInState extends State<SignIn> {
               margin: EdgeInsets.symmetric(horizontal: 25),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: Colors.teal[200]),
+                  color: Colors.indigo[900]),
             ),
             Container(
               width: 150,
@@ -117,7 +132,7 @@ class _SignInState extends State<SignIn> {
               margin: EdgeInsets.symmetric(horizontal: 70),
               padding: EdgeInsets.only(top: 20),
               child: RaisedButton(
-                color: Colors.pink[400],
+                color: Colors.blue[200],
                 onPressed: () async {
                   dynamic result = await _authService
                       .signInWithEmailAndPassword(_email, _password);
@@ -129,7 +144,7 @@ class _SignInState extends State<SignIn> {
                 },
                 child: Text(
                   "Log In ",
-                  style: TextStyle(color: Colors.teal[200]),
+                  style: TextStyle(color: Colors.indigo[900]),
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(30),
@@ -140,7 +155,7 @@ class _SignInState extends State<SignIn> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.teal[200],
+        backgroundColor: Colors.indigo[900],
         child: Icon(
           Icons.add,
         ),

@@ -2,12 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vacc_app/Pages/Services/BabyModel.dart';
 
 class DatabaseService extends ChangeNotifier {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final CollectionReference userCollection =
-  FirebaseFirestore.instance.collection("User");
+      FirebaseFirestore.instance.collection("User");
 
   DatabaseService() {
     getBabiesList();
@@ -24,13 +23,18 @@ class DatabaseService extends ChangeNotifier {
         .catchError((error) => print("Failed to add user: $error"));
   }
 
-  Future<void> addBaby(String babyName, String babyGender,
-      String babyBirthday) async {
+  Future<void> addBaby(
+      String babyName, String babyGender, String babyBirthday) async {
     final User user = auth.currentUser;
     Map<String, dynamic> regionData = new Map<String, dynamic>();
     regionData["babyName"] = babyName;
     regionData["babyGender"] = babyGender;
     regionData["babyBirthday"] = babyBirthday;
+    regionData["babyVaccination"] = [
+      "Use a cool, damp cloth to help reduce redness, soreness, and/or swelling at the injection site",
+      "Reduce fever with a cool sponge bath.",
+      "Ask your child’s doctor if you can give your child a non-aspirin pain reliever"
+    ];
 
     DocumentReference currentRegion = FirebaseFirestore.instance
         .collection("User")
@@ -68,32 +72,10 @@ class DatabaseService extends ChangeNotifier {
         .collection("Babies");
     QuerySnapshot data = await collectionReference.get();
 
-     babies = data.docs.map((QueryDocumentSnapshot e) {
-        return e.data();
+    babies = data.docs.map((QueryDocumentSnapshot e) {
+      return e.data();
     }).toList();
 
-     notifyListeners();
-
+    notifyListeners();
   }
-  //
-  // List<BabyModel> _babiesFromSnapShot(QuerySnapshot snapshot) {
-  //   return snapshot.docs.map((data) {
-  //     return BabyModel(
-  //       babyName: data.data()['userName'] ?? '',
-  //       babyGender: data.data()['gender'] ?? '',
-  //       babyBirthDate: data.data()['numberOfBabies'] ?? '',
-  //     );
-  //   }).toList();
-  // }
-
-//   // get user Stream
-//   Stream<QuerySnapshot> get userNewData {
-//     return userCollection.snapshots();
-//   }
-//   //get streams
-// Stream<List<BabyModel>> get data{
-//     return userCollection.snapshots().map((_babiesFromSnapShot));
-//
-// }
-
 }
