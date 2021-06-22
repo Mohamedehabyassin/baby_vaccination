@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class DatabaseService extends ChangeNotifier {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final CollectionReference userCollection =
-      FirebaseFirestore.instance.collection("User");
+  FirebaseFirestore.instance.collection("User");
 
   DatabaseService() {
     getBabiesList();
@@ -23,17 +23,26 @@ class DatabaseService extends ChangeNotifier {
         .catchError((error) => print("Failed to add user: $error"));
   }
 
-  Future<void> addBaby(
-      String babyName, String babyGender, String babyBirthday) async {
+  Future<void> addBaby(String babyName, String babyGender,
+      String babyBirthday) async {
     final User user = auth.currentUser;
     Map<String, dynamic> regionData = new Map<String, dynamic>();
     regionData["babyName"] = babyName;
     regionData["babyGender"] = babyGender;
     regionData["babyBirthday"] = babyBirthday;
     regionData["babyVaccination"] = [
-      "Use a cool, damp cloth to help reduce redness, soreness, and/or swelling at the injection site",
-      "Reduce fever with a cool sponge bath.",
-      "Ask your child’s doctor if you can give your child a non-aspirin pain reliever"
+      "Chickenpox",
+      "Diphtheria , tetanus, and whooping cough",
+      "Haemophilus influenzae type b",
+      "Hepatitis A",
+      "Hepatitis B",
+      "Influenza",
+      "Measles, mumps, rubella",
+      "Meningococcal",
+      "Pneumococcal",
+      "Polio",
+      "Rotavirus",
+
     ];
 
     DocumentReference currentRegion = FirebaseFirestore.instance

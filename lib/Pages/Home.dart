@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
       ),
       appBar: AppBar(
         title: Text("My Babies"),
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Colors.indigo[900],
       ),
       body: BabiesList(),
       floatingActionButton: FloatingActionButton(

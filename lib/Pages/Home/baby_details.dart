@@ -115,25 +115,28 @@ class _BabyDetailsState extends State<BabyDetails> {
       body: Container(
         margin: EdgeInsets.all(20),
         padding: EdgeInsets.symmetric(horizontal: 0, vertical: 30),
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height *4,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             color: Colors.blue[500], borderRadius: BorderRadius.circular(40)),
-        child: Column(
+        child: ListView(
           children: [
             Text(
               '${widget.data['babyName'].toString().toUpperCase()}',
+              textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white, fontSize: 30),
             ),
             buildDivider(),
             Text(
               'Birthdate : ${widget.data['babyBirthday'].toString().toUpperCase()}',
               style: TextStyle(color: Colors.white, fontSize: 20),
+              textAlign: TextAlign.center,
             ),
             buildDivider(),
             Text(
               '${widget.data['babyGender']}',
               style: TextStyle(color: Colors.white, fontSize: 20),
+              textAlign: TextAlign.center,
             ),
             buildDivider(),
             ...vaccList.map((e) => buildSingleCheckbox(e)).toList()

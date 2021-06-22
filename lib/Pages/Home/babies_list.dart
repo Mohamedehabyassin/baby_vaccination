@@ -35,7 +35,7 @@ class _BabiesListState extends State<BabiesList> {
                           margin: EdgeInsets.all(18),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
-                            color: Colors.blue[600],
+                            color: Colors.blue[400],
                           ),
                           child: ListTile(
                             contentPadding: EdgeInsets.all(15),
