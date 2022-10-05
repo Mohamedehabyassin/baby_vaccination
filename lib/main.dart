@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'package:vacc_app/Pages/Services/authService.dart';
-import 'package:vacc_app/Pages/Services/userModel.dart';
-import 'package:vacc_app/Pages/Splash_Screen.dart';
+import 'package:vacc_app/shared/auth_service.dart';
+import 'package:vacc_app/model/user_model.dart';
+import 'package:vacc_app/layout/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

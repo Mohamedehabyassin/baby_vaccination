@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vacc_app/Pages/Services/authService.dart';
+import 'package:vacc_app/shared/auth_service.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
 class SignIn extends StatefulWidget {
@@ -131,8 +130,7 @@ class _SignInState extends State<SignIn> {
               height: 70,
               margin: EdgeInsets.symmetric(horizontal: 70),
               padding: EdgeInsets.only(top: 20),
-              child: RaisedButton(
-                color: Colors.blue[200],
+              child: ElevatedButton(
                 onPressed: () async {
                   dynamic result = await _authService
                       .signInWithEmailAndPassword(_email, _password);
@@ -145,9 +143,6 @@ class _SignInState extends State<SignIn> {
                 child: Text(
                   "Log In ",
                   style: TextStyle(color: Colors.indigo[900]),
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30),
                 ),
               ),
             ),

@@ -1,9 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:vacc_app/Pages/Services/database.dart';
-import 'package:vacc_app/Pages/Services/userModel.dart';
-//import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:vacc_app/shared/data/database.dart';
+import 'package:vacc_app/model/user_model.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;

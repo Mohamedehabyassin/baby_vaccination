@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:vacc_app/Pages/Home/Map/google_map.dart';
-import 'package:vacc_app/Pages/Home/Map/hospital_model.dart';
+import 'package:vacc_app/model/hospital_model.dart';
+import 'package:vacc_app/modules/map/google_map.dart';
 
 class Hospital extends StatefulWidget {
   const Hospital({Key key}) : super(key: key);

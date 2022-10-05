@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vacc_app/Pages/Home/vacc_settings.dart';
+import 'package:vacc_app/modules/screen/vacc_settings.dart';
 
 class BabyDetails extends StatefulWidget {
   final data;

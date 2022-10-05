@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:vacc_app/Pages/Home/AddBaby.dart';
-import 'package:vacc_app/Pages/Home/Map/hospital.dart';
-import 'package:vacc_app/Pages/Home/babies_list.dart';
-import 'package:vacc_app/Pages/Home/editUser.dart';
-import 'package:vacc_app/Pages/Services/authService.dart';
-import 'package:vacc_app/Pages/Services/messaging.dart';
-import '';
+import 'package:vacc_app/modules/map/hospital.dart';
+import 'package:vacc_app/modules/screen/add_baby.dart';
+import 'package:vacc_app/modules/screen/babies_list.dart';
+import 'package:vacc_app/modules/screen/edit_user.dart';
+import 'package:vacc_app/shared/auth_service.dart';
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
+class HomeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AuthService _auth = AuthService();

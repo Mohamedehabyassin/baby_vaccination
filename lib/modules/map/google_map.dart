@@ -6,10 +6,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:vacc_app/Pages/Home/Map/direction_details.dart';
-import 'package:vacc_app/Pages/Home/Map/direction_model.dart';
-import 'package:vacc_app/Pages/Home/Map/direction_rep.dart';
 import 'package:google_maps_webservice/directions.dart' as directions;
+import 'package:vacc_app/model/direction_model.dart';
+import 'package:vacc_app/modules/map/direction_details.dart';
+import 'package:vacc_app/modules/map/direction_rep.dart';
 
 class MapScreen extends StatefulWidget {
   final LatLng position;
@@ -35,7 +35,7 @@ class _MapScreenState extends State<MapScreen> {
   Map<PolylineId, Polyline> polylines = {};
   List<LatLng> polylineCoordinates = [];
   final Set<Polyline> _polyline = {};
-  List<LatLng> latlngList = List();
+  List<LatLng> latLngList = [];
 
   void getCurrentLocation() async {
     try {
@@ -53,9 +53,9 @@ class _MapScreenState extends State<MapScreen> {
           markerId: MarkerId("origin"),
           position: latLng,
           icon:
-          BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
         );
-        latlngList.add(_origin.position);
+        latLngList.add(_origin.position);
       });
     } on PlatformException catch (e) {
       if (e.code == 'PERMISSION_DENIED') {
@@ -74,7 +74,7 @@ class _MapScreenState extends State<MapScreen> {
 
   void getHospitalLocation() {
     LatLng latLngDes =
-    LatLng(widget.position.latitude, widget.position.longitude);
+        LatLng(widget.position.latitude, widget.position.longitude);
     if (_googleMapController != null) {
       _googleMapController.animateCamera(CameraUpdate.newCameraPosition(
           new CameraPosition(target: latLngDes, zoom: 11.00)));
@@ -116,11 +116,7 @@ class _MapScreenState extends State<MapScreen> {
   Future<dynamic> makingRequest() async {
     try {
       String url =
-          "https://maps.googleapis.com/maps/api/directions/json?origin=${_origin
-          .position.latitude},${_origin.position
-          .longitude}&destination=${_destination.position
-          .latitude},${_destination.position
-          .longitude}&key=AIzaSyCIdWX_NEbI8bJpujWZadAjwNbZb_lP38E";
+          "https://maps.googleapis.com/maps/api/directions/json?origin=${_origin.position.latitude},${_origin.position.longitude}&destination=${_destination.position.latitude},${_destination.position.longitude}&key=AIzaSyCIdWX_NEbI8bJpujWZadAjwNbZb_lP38E";
 
       http.Response response = await http.get(url);
       if (response.statusCode == 200) {
@@ -144,17 +140,16 @@ class _MapScreenState extends State<MapScreen> {
 
     setState(() {
       directionDetails.encodedPoints =
-      request["routes"][0]["overview_polyline"]["points"];
+          request["routes"][0]["overview_polyline"]["points"];
       directionDetails.distanceText =
-      request["routes"][0]["legs"][0]["distance"]["text"];
+          request["routes"][0]["legs"][0]["distance"]["text"];
       directionDetails.distanceValue =
-      request["routes"][0]["legs"][0]["distance"]["value"];
+          request["routes"][0]["legs"][0]["distance"]["value"];
       directionDetails.durationText =
-      request["routes"][0]["legs"][0]["duration"]["text"];
+          request["routes"][0]["legs"][0]["duration"]["text"];
       directionDetails.durationValue =
-      request["routes"][0]["legs"][0]["duration"]["value"];
+          request["routes"][0]["legs"][0]["duration"]["value"];
     });
-
   }
 
   @override
@@ -180,16 +175,15 @@ class _MapScreenState extends State<MapScreen> {
         actions: [
           if (_origin != null)
             TextButton(
-              onPressed: () =>
-                  _googleMapController.animateCamera(
-                    CameraUpdate.newCameraPosition(
-                      CameraPosition(
-                        target: _origin.position,
-                        zoom: 18,
-                        tilt: 50.0,
-                      ),
-                    ),
+              onPressed: () => _googleMapController.animateCamera(
+                CameraUpdate.newCameraPosition(
+                  CameraPosition(
+                    target: _origin.position,
+                    zoom: 18,
+                    tilt: 50.0,
                   ),
+                ),
+              ),
               style: TextButton.styleFrom(
                 primary: Colors.green,
                 textStyle: const TextStyle(fontWeight: FontWeight.w600),
@@ -198,16 +192,15 @@ class _MapScreenState extends State<MapScreen> {
             ),
           if (_destination != null)
             TextButton(
-              onPressed: () =>
-                  _googleMapController.animateCamera(
-                    CameraUpdate.newCameraPosition(
-                      CameraPosition(
-                        target: _destination.position,
-                        zoom: 18,
-                        tilt: 50.0,
-                      ),
-                    ),
+              onPressed: () => _googleMapController.animateCamera(
+                CameraUpdate.newCameraPosition(
+                  CameraPosition(
+                    target: _destination.position,
+                    zoom: 18,
+                    tilt: 50.0,
                   ),
+                ),
+              ),
               style: TextButton.styleFrom(
                 primary: Colors.white,
                 textStyle: const TextStyle(fontWeight: FontWeight.w600),
@@ -229,16 +222,16 @@ class _MapScreenState extends State<MapScreen> {
                 if (_destination != null) _destination,
               },
               polylines: {
-                if(directionDetails != null)
+                if (directionDetails != null)
                   Polyline(
-                    polylineId:  PolylineId('overview_polyline'),
-                    points: directionDetails.encodedPoints.map((e) => LatLng(e.latitude, e.longitude)).toList(),
+                    polylineId: PolylineId('overview_polyline'),
+                    points: directionDetails.encodedPoints
+                        .map((e) => LatLng(e.latitude, e.longitude))
+                        .toList(),
                     width: 5,
                     color: Colors.red,
-
                   )
-              }
-          ),
+              }),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -259,7 +252,7 @@ class _MapScreenState extends State<MapScreen> {
           markerId: MarkerId('origin'),
           infoWindow: const InfoWindow(title: 'Origin'),
           icon:
-          BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
           position: pos,
         );
         // Reset destination
@@ -276,7 +269,7 @@ class _MapScreenState extends State<MapScreen> {
           markerId: MarkerId('destination'),
           infoWindow: const InfoWindow(title: 'Destination'),
           icon:
-          BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
           position: pos,
         );
       });
@@ -284,7 +277,7 @@ class _MapScreenState extends State<MapScreen> {
       // Get directions
       final directions = await DirectionsRepository()
           .getDirections(origin: _origin.position, destination: pos);
-      setState(() => _info = directions);
+      setState(() => _info = directions as Directions);
     }
   }
 }

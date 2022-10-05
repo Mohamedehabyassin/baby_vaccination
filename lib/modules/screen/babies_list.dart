@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vacc_app/Pages/Home/baby_details.dart';
-import 'package:vacc_app/Pages/Services/database.dart';
-import 'package:vacc_app/Pages/Services/userModel.dart';
-import 'package:vacc_app/Pages/loading.dart';
+import 'package:vacc_app/modules/screen/baby_details.dart';
+import 'package:vacc_app/shared/data/database.dart';
+import 'package:vacc_app/model/user_model.dart';
+import 'package:vacc_app/modules/loading.dart';
 
 class BabiesList extends StatefulWidget {
   @override

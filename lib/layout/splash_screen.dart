@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
-import 'package:vacc_app/Pages/Wrapper.dart';
+import 'package:vacc_app/layout/wrapper.dart';
 
 class MySplashScreen extends StatelessWidget {
   final animationType = "tap";

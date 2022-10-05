@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vacc_app/Pages/Home.dart';
-import 'package:vacc_app/Pages/Services/database.dart';
+import 'package:vacc_app/layout/home_layout.dart';
+import 'package:vacc_app/shared/data/database.dart';
 
 class AddBaby extends StatefulWidget {
   @override
@@ -114,23 +114,18 @@ class _AddBabyState extends State<AddBaby> {
             height: 80,
             margin: EdgeInsets.symmetric(horizontal: 70),
             padding: EdgeInsets.only(top: 20),
-            child: RaisedButton(
-              color: Colors.indigo[900],
+            child: ElevatedButton(
               child: Text(
                 "Add Baby ",
                 style: TextStyle(color: Colors.white),
               ),
-              shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(30),
-              ),
-              onPressed: () async{
-                await _data.addBaby(babyName,dropdownValue,babyBirthday);
+              onPressed: () async {
+                await _data.addBaby(babyName, dropdownValue, babyBirthday);
                 new Future.delayed(const Duration(seconds: 1), () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Home()));
-
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomeLayout()));
                 });
-                  },
+              },
             ),
           ),
         ],

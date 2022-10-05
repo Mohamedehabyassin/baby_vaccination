@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:vacc_app/Pages/Home/Map/direction_model.dart';
+import 'package:vacc_app/model/direction_model.dart';
 
 class DirectionsRepository {
   static const String _baseUrl =

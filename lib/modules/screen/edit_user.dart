@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vacc_app/Pages/Services/database.dart';
+import 'package:vacc_app/shared/data/database.dart';
 
 class EditUser extends StatefulWidget {
   @override

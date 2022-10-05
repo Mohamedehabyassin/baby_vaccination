@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vacc_app/Pages/Services/authService.dart';
+import 'package:vacc_app/shared/auth_service.dart';
 
 class Register extends StatefulWidget {
   final Function toggleView;
@@ -64,7 +64,10 @@ class _RegisterState extends State<Register> {
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(10),
-                      prefixIcon: Icon(Icons.mail_outline,color: Colors.white,)),
+                      prefixIcon: Icon(
+                        Icons.mail_outline,
+                        color: Colors.white,
+                      )),
                 ),
               ),
               SizedBox(
@@ -82,7 +85,10 @@ class _RegisterState extends State<Register> {
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(10),
-                      prefixIcon: Icon(Icons.lock,color: Colors.white,)),
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.white,
+                      )),
                 ),
               ),
               Container(
@@ -90,8 +96,7 @@ class _RegisterState extends State<Register> {
                 height: 70,
                 margin: EdgeInsets.symmetric(horizontal: 70),
                 padding: EdgeInsets.only(top: 20),
-                child: RaisedButton(
-                  color: Colors.indigo[900],
+                child: ElevatedButton(
                   onPressed: () async {
                     dynamic result = await _auth.registerWithEmailAndPassword(
                         _email, _password);
@@ -106,16 +111,13 @@ class _RegisterState extends State<Register> {
                     "Register",
                     style: TextStyle(color: Colors.white),
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30),
-                  ),
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
               ElevatedButton(
-                  onPressed: ()  {
+                  onPressed: () {
                     _auth.signInWithGoogle();
                   },
                   style: ButtonStyle(
@@ -141,9 +143,8 @@ class _RegisterState extends State<Register> {
                   )),
               ElevatedButton(
                   onPressed: () async {
-                  _auth.signInWithFacebook();
-
-              },
+                    _auth.signInWithFacebook();
+                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
                       (Set<MaterialState> states) {
